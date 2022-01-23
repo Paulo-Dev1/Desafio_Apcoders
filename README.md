@@ -2,7 +2,8 @@
 
 Projeto Realizado no Aspnetcore.Mvc
 
-Tecnologias utilizadas 
+Tecnologias utilizadas
+
 Visual Estudio
 C#
 Bootstrap
