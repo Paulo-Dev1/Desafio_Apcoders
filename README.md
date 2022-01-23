@@ -28,7 +28,7 @@ Mude o Nome do server para o seu local, nome do databse qualquer nome de sua esc
 Banco de dados Feito no Sql Server.
 
 Utilize .net versão 5.0
-
+Utilize O Visual Studio
 
 
 
