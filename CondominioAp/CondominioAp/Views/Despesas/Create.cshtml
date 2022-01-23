@@ -3,10 +3,8 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
-<h4>Despesas</h4>
+<div class="bg-secondary p-3">
+<h1>Nova Despesa</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -38,19 +36,19 @@
                 <span asp-validation-for="Status_Pagamento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UnidadeId_unidade" class="control-label"></label>
-                <input asp-for="UnidadeId_unidade" class="form-control" />
-                <span asp-validation-for="UnidadeId_unidade" class="text-danger"></span>
+                <label asp-for="UnidadesId_unidade" class="control-label"></label>
+                <select asp-for="UnidadesId_unidade" class ="form-control" asp-items="ViewBag.UnidadesId_unidade"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cadastrar Depesa" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+</div>
 </div>
 
 @section Scripts {

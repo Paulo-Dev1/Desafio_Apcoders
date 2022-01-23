@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div class="bg-secondary p-3">
 
-<h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem Certeza que deseja exluir essa Unidade?</h3>
 <div>
     <h4>Unidades</h4>
     <hr />
@@ -36,16 +36,17 @@
             @Html.DisplayFor(model => model.Endereco)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InquilinosId_Inquilino)
+            @Html.DisplayNameFor(model => model.Inquilinos)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InquilinosId_Inquilino)
-        </dd>
+            @Html.DisplayFor(model => model.Inquilinos.Email)
+        </dd class>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id_Unidade" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a class="btn btn-secondary"  asp-action="Index">Voltar</a>
     </form>
+</div>
 </div>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Apcoders Projeto\\CondominioAp\\CondominioAp\\CondominioAp.csproj": {}
+    "D:\\Apcoders Projeto\\Desafio_Apcoders\\CondominioAp\\CondominioAp\\CondominioAp.csproj": {}
   },
   "projects": {
-    "D:\\Apcoders Projeto\\CondominioAp\\CondominioAp\\CondominioAp.csproj": {
+    "D:\\Apcoders Projeto\\Desafio_Apcoders\\CondominioAp\\CondominioAp\\CondominioAp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Apcoders Projeto\\CondominioAp\\CondominioAp\\CondominioAp.csproj",
+        "projectUniqueName": "D:\\Apcoders Projeto\\Desafio_Apcoders\\CondominioAp\\CondominioAp\\CondominioAp.csproj",
         "projectName": "CondominioAp",
-        "projectPath": "D:\\Apcoders Projeto\\CondominioAp\\CondominioAp\\CondominioAp.csproj",
+        "projectPath": "D:\\Apcoders Projeto\\Desafio_Apcoders\\CondominioAp\\CondominioAp\\CondominioAp.csproj",
         "packagesPath": "C:\\Users\\Paulo Miguel\\.nuget\\packages\\",
-        "outputPath": "D:\\Apcoders Projeto\\CondominioAp\\CondominioAp\\obj\\",
+        "outputPath": "D:\\Apcoders Projeto\\Desafio_Apcoders\\CondominioAp\\CondominioAp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FoohleYskBE+Iu/8pHfCep3zV2CPOH4gyDfFgMCoxS6ZvJe2uJOKee9/5gb+9UEJO1ky5ygU08atx/4lZcGxng==",
+  "dgSpecHash": "1V2vz/mq+16p0Q/xrnwiuF6bC/WOidY+Z8q20J7Ru/VCAqrydgZaaIn7gDoYzSFvTboQ40KFzHMi2z63PKp6Og==",
   "success": true,
-  "projectFilePath": "D:\\Apcoders Projeto\\CondominioAp\\CondominioAp\\CondominioAp.csproj",
+  "projectFilePath": "D:\\Apcoders Projeto\\Desafio_Apcoders\\CondominioAp\\CondominioAp\\CondominioAp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Paulo Miguel\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Paulo Miguel\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

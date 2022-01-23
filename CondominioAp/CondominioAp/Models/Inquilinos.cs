@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace CondominioAp.Models
 {
@@ -8,7 +9,8 @@ namespace CondominioAp.Models
 
         [Key]
         [Required]
-        public int Id { get; set; }
+        public int Id_Inquilino { get; set; }
+
 
         [Required]
         public string Nome { get; set; }
@@ -23,6 +25,7 @@ namespace CondominioAp.Models
         public string Telefone { get; set; }
 
         [Required]
+        [DisplayName("E-mail")]
         public string Email { get; set; }
 
 

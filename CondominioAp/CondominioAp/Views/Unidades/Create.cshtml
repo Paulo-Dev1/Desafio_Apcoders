@@ -3,10 +3,8 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h1>Create</h1>
-
-<h4>Unidades</h4>
+<div class="bg-secondary p-3">
+<h1>Registrar nova Unidade</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -33,19 +31,18 @@
                 <span asp-validation-for="Endereco" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InquilinosId_Inquilino" class="control-label"></label>
-                <input asp-for="InquilinosId_Inquilino" class="form-control" />
-                <span asp-validation-for="InquilinosId_Inquilino" class="text-danger"></span>
+                <label asp-for="InquilinosId_Inquilino" class="control-label">E-mail do Inquilino</label>
+                <select asp-for="InquilinosId_Inquilino" class ="form-control" asp-items="ViewBag.InquilinosId_Inquilino"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar Unidade" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-secondary" asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {

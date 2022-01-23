@@ -34,7 +34,7 @@ namespace CondominioAp.Controllers
             }
 
             var inquilinos = await _context.Inquilinos
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id_Inquilino == id);
             if (inquilinos == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace CondominioAp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Idade,Sexo,Telefone,Email")] Inquilinos inquilinos)
+        public async Task<IActionResult> Create([Bind("Id_Inquilino,Nome,Idade,Sexo,Telefone,Email")] Inquilinos inquilinos)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace CondominioAp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Idade,Sexo,Telefone,Email")] Inquilinos inquilinos)
+        public async Task<IActionResult> Edit(int id, [Bind("Id_Inquilino,Nome,Idade,Sexo,Telefone,Email")] Inquilinos inquilinos)
         {
-            if (id != inquilinos.Id)
+            if (id != inquilinos.Id_Inquilino)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace CondominioAp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InquilinosExists(inquilinos.Id))
+                    if (!InquilinosExists(inquilinos.Id_Inquilino))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace CondominioAp.Controllers
             }
 
             var inquilinos = await _context.Inquilinos
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id_Inquilino == id);
             if (inquilinos == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace CondominioAp.Controllers
 
         private bool InquilinosExists(int id)
         {
-            return _context.Inquilinos.Any(e => e.Id == id);
+            return _context.Inquilinos.Any(e => e.Id_Inquilino == id);
         }
     }
 }

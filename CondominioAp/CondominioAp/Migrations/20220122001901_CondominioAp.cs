@@ -10,7 +10,7 @@ namespace CondominioAp.Migrations
                 name: "Inquilinos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id_Inquilino = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Idade = table.Column<int>(type: "int", nullable: false),
@@ -20,7 +20,7 @@ namespace CondominioAp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Inquilinos", x => x.Id);
+                    table.PrimaryKey("PK_Inquilinos", x => x.Id_Inquilino);
                 });
 
             migrationBuilder.CreateTable(
@@ -33,18 +33,17 @@ namespace CondominioAp.Migrations
                     Propietario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Condominio = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Endereco = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    InquilinosId_Inquilino = table.Column<int>(type: "int", nullable: false),
-                    InquilinosId = table.Column<int>(type: "int", nullable: true)
+                    InquilinosId_Inquilino = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Unidades", x => x.Id_Unidade);
                     table.ForeignKey(
-                        name: "FK_Unidades_Inquilinos_InquilinosId",
-                        column: x => x.InquilinosId,
+                        name: "FK_Unidades_Inquilinos_InquilinosId_Inquilino",
+                        column: x => x.InquilinosId_Inquilino,
                         principalTable: "Inquilinos",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id_Inquilino",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,29 +57,28 @@ namespace CondominioAp.Migrations
                     Valor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Vencimento_Fatura = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status_Pagamento = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UnidadeId_unidade = table.Column<int>(type: "int", nullable: false),
-                    UnidadesId_Unidade = table.Column<int>(type: "int", nullable: true)
+                    UnidadesId_unidade = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Despesas", x => x.Id_Despesa);
                     table.ForeignKey(
-                        name: "FK_Despesas_Unidades_UnidadesId_Unidade",
-                        column: x => x.UnidadesId_Unidade,
+                        name: "FK_Despesas_Unidades_UnidadesId_unidade",
+                        column: x => x.UnidadesId_unidade,
                         principalTable: "Unidades",
                         principalColumn: "Id_Unidade",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Despesas_UnidadesId_Unidade",
+                name: "IX_Despesas_UnidadesId_unidade",
                 table: "Despesas",
-                column: "UnidadesId_Unidade");
+                column: "UnidadesId_unidade");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Unidades_InquilinosId",
+                name: "IX_Unidades_InquilinosId_Inquilino",
                 table: "Unidades",
-                column: "InquilinosId");
+                column: "InquilinosId_Inquilino");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

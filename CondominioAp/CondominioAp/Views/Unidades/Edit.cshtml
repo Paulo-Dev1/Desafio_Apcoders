@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h1>Edit</h1>
+<div class="bg-secondary p-3">
+<h1>Editar</h1>
 
 <h4>Unidades</h4>
 <hr />
@@ -34,19 +34,20 @@
                 <span asp-validation-for="Endereco" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InquilinosId_Inquilino" class="control-label"></label>
-                <input asp-for="InquilinosId_Inquilino" class="form-control" />
+                <label asp-for="InquilinosId_Inquilino" class="control-label">E-mail do Inquilino</label>
+                <select asp-for="InquilinosId_Inquilino" class="form-control" asp-items="ViewBag.InquilinosId_Inquilino"></select>
                 <span asp-validation-for="InquilinosId_Inquilino" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-secondary" asp-action="Index">Voltar</a>
+</div>
 </div>
 
 @section Scripts {

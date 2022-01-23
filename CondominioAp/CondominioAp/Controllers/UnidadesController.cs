@@ -22,7 +22,8 @@ namespace CondominioAp.Controllers
         // GET: Unidades
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Unidades.ToListAsync());
+            var apContext = _context.Unidades.Include(u => u.Inquilinos);
+            return View(await apContext.ToListAsync());
         }
 
         // GET: Unidades/Details/5
@@ -34,6 +35,7 @@ namespace CondominioAp.Controllers
             }
 
             var unidades = await _context.Unidades
+                .Include(u => u.Inquilinos)
                 .FirstOrDefaultAsync(m => m.Id_Unidade == id);
             if (unidades == null)
             {
@@ -46,6 +48,7 @@ namespace CondominioAp.Controllers
         // GET: Unidades/Create
         public IActionResult Create()
         {
+            ViewData["InquilinosId_Inquilino"] = new SelectList(_context.Inquilinos, "Id_Inquilino", "Email");
             return View();
         }
 
@@ -62,6 +65,7 @@ namespace CondominioAp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["InquilinosId_Inquilino"] = new SelectList(_context.Inquilinos, "Id_Inquilino", "Email", unidades.InquilinosId_Inquilino);
             return View(unidades);
         }
 
@@ -78,6 +82,7 @@ namespace CondominioAp.Controllers
             {
                 return NotFound();
             }
+            ViewData["InquilinosId_Inquilino"] = new SelectList(_context.Inquilinos, "Id_Inquilino", "Email", unidades.InquilinosId_Inquilino);
             return View(unidades);
         }
 
@@ -113,6 +118,7 @@ namespace CondominioAp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["InquilinosId_Inquilino"] = new SelectList(_context.Inquilinos, "Id_Inquilino", "Email", unidades.InquilinosId_Inquilino);
             return View(unidades);
         }
 
@@ -125,6 +131,7 @@ namespace CondominioAp.Controllers
             }
 
             var unidades = await _context.Unidades
+                .Include(u => u.Inquilinos)
                 .FirstOrDefaultAsync(m => m.Id_Unidade == id);
             if (unidades == null)
             {

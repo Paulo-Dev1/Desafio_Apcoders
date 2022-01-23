@@ -22,7 +22,9 @@ namespace CondominioAp.Controllers
         // GET: Despesas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Despesas.ToListAsync());
+
+            var apContext = _context.Despesas.Include(d => d.Unidades);
+            return View(await apContext.ToListAsync());
         }
 
         // GET: Despesas/Details/5
@@ -34,6 +36,7 @@ namespace CondominioAp.Controllers
             }
 
             var despesas = await _context.Despesas
+                .Include(d => d.Unidades)
                 .FirstOrDefaultAsync(m => m.Id_Despesa == id);
             if (despesas == null)
             {
@@ -46,6 +49,7 @@ namespace CondominioAp.Controllers
         // GET: Despesas/Create
         public IActionResult Create()
         {
+            ViewData["UnidadesId_unidade"] = new SelectList(_context.Unidades, "Id_Unidade", "Condominio");
             return View();
         }
 
@@ -54,7 +58,7 @@ namespace CondominioAp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id_Despesa,Descricao,Tipo_Despesa,Valor,Vencimento_Fatura,Status_Pagamento,UnidadeId_unidade")] Despesas despesas)
+        public async Task<IActionResult> Create([Bind("Id_Despesa,Descricao,Tipo_Despesa,Valor,Vencimento_Fatura,Status_Pagamento,UnidadesId_unidade")] Despesas despesas)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +66,7 @@ namespace CondominioAp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["UnidadesId_unidade"] = new SelectList(_context.Unidades, "Id_Unidade", "Condominio", despesas.UnidadesId_unidade);
             return View(despesas);
         }
 
@@ -78,6 +83,7 @@ namespace CondominioAp.Controllers
             {
                 return NotFound();
             }
+            ViewData["UnidadesId_unidade"] = new SelectList(_context.Unidades, "Id_Unidade", "Condominio", despesas.UnidadesId_unidade);
             return View(despesas);
         }
 
@@ -86,7 +92,7 @@ namespace CondominioAp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id_Despesa,Descricao,Tipo_Despesa,Valor,Vencimento_Fatura,Status_Pagamento,UnidadeId_unidade")] Despesas despesas)
+        public async Task<IActionResult> Edit(int id, [Bind("Id_Despesa,Descricao,Tipo_Despesa,Valor,Vencimento_Fatura,Status_Pagamento,UnidadesId_unidade")] Despesas despesas)
         {
             if (id != despesas.Id_Despesa)
             {
@@ -113,6 +119,7 @@ namespace CondominioAp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["UnidadesId_unidade"] = new SelectList(_context.Unidades, "Id_Unidade", "Condominio", despesas.UnidadesId_unidade);
             return View(despesas);
         }
 
@@ -125,6 +132,7 @@ namespace CondominioAp.Controllers
             }
 
             var despesas = await _context.Despesas
+                .Include(d => d.Unidades)
                 .FirstOrDefaultAsync(m => m.Id_Despesa == id);
             if (despesas == null)
             {
